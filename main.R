@@ -66,6 +66,7 @@ stackedBoxesPlot()
 
 # from counts & bins, not raw data
 xData <- countFn(rnorm(1e3), bins = 10)
+print(xData)
 stackedBoxesPlot(xData, rnorm(1e3))
 
 # not the same size
@@ -89,6 +90,7 @@ stackedBoxesPlot(rnorm(1000), rnorm(1000, -0.5))
 
 # increased spread
 stackedBoxesPlot(rnorm(1000), rnorm(1000, 0, 1))
+stackedBoxesPlot(rnorm(1000), rnorm(1000, 0, 1.1))
 stackedBoxesPlot(rnorm(1000), rnorm(1000, 0, 1.25))
 stackedBoxesPlot(rnorm(1000), rnorm(1000, 0, 1.5))
 stackedBoxesPlot(rnorm(1000), rnorm(1000, 0, 2))
@@ -133,7 +135,7 @@ library(egg)
 xData <- countFn(rnorm(1e3), bins = 10)
 
 # construct a list of 10 plots without displaying them
-pList <- list()
+pList <- list()  # initialise empty list
 for (i in 1:10)
   pList[[i]] <- stackedBoxesPlot(
     x = xData
